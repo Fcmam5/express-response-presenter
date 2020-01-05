@@ -1,0 +1,7 @@
+test
+coverage
+examples
+.eslintrc.json
+.gitignore
+jest.config.js
+.vscode

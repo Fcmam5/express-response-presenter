@@ -1,0 +1,42 @@
+{
+  "name": "express-presenter",
+  "version": "0.0.1",
+  "description": "Standardize ExpressJS JSON responses",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fcmam5/express-response-presnter.git"
+  },
+  "keywords": [
+    "express",
+    "json",
+    "api",
+    "reponse"
+  ],
+  "author": "Fortas Abdeldjalil <dr.fcmam5@gmail.com> (https://fcmam5.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fcmam5/express-response-presnter/issues"
+  },
+  "homepage": "https://github.com/Fcmam5/express-response-presnter#readme",
+  "devDependencies": {
+    "@types/jest": "24.0.25",
+    "body-parser": "1.19.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-import": "2.19.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-sonarjs": "0.5.0",
+    "express": "4.17.1",
+    "prettier": "1.19.1",
+    "supertest": "4.0.2"
+  }
+}
