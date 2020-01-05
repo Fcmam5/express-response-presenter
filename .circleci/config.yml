@@ -1,0 +1,45 @@
+version: 2.1
+
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout # special step to check out source code to working directory
+
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          keys: 
+            - v1-repo-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: Install dependencies
+          command: npm install 
+
+      - save_cache: # special step to save the dependency cache
+          key: v1-repo-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run:
+          name: Lint
+          command: npm run lint
+        
+      - run:
+          name: Run tests
+          # Runs jest with "--maxWorkers=2" argument to avoid OOM issues
+          command: npm run test:ci
+      - store_artifacts: 
+          path: coverage
+      - store_test_results:
+          path: coverage
+
+      - coveralls/upload
+
+workflows:
+  version: 2
+  Build and Test:
+    jobs:
+      - build
