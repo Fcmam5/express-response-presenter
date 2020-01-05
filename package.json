@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:ci": "CI=true jest --collectCoverage=true",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
