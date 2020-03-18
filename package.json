@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/Fcmam5/express-response-presnter#readme",
   "devDependencies": {
-    "@types/jest": "24.0.25",
+    "@types/jest": "25.1.4",
     "body-parser": "1.19.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.0.1",
@@ -37,7 +37,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-sonarjs": "0.5.0",
     "express": "4.17.1",
-    "jest": "24.9.0",
+    "jest": "25.1.0",
     "prettier": "1.19.1",
     "supertest": "4.0.2"
   }
