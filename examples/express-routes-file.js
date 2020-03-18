@@ -21,7 +21,7 @@ router.post('/api/v1/create', presenter, (req, res) => {
 
 router.get('/api/v1/start-task', presenter, (req, res) => {
   res.accepted({
-    message: 'I will start cooking Mhajeb',
+    message: 'I will start cooking Mhajeb'
   });
 });
 

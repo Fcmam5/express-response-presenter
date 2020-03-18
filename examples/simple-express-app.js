@@ -24,7 +24,7 @@ app.use('/created', (req, res) => {
 
 app.use('/accepted', (req, res) => {
   res.accepted({
-    message: 'I will start cooking Mhajeb',
+    message: 'I will start cooking Mhajeb'
   });
 });
 
