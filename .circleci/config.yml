@@ -12,26 +12,26 @@ jobs:
 
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          keys: 
+          keys:
             - v1-repo-{{ checksum "package-lock.json" }}
 
       - run:
           name: Install dependencies
-          command: npm install 
+          command: npm install
 
       - save_cache: # special step to save the dependency cache
           key: v1-repo-{{ checksum "package-lock.json" }}
           paths:
-            - "node_modules"
+            - 'node_modules'
       - run:
           name: Lint
           command: npm run lint
-        
+
       - run:
           name: Run tests
           # Runs jest with "--maxWorkers=2" argument to avoid OOM issues
           command: npm run test:ci
-      - store_artifacts: 
+      - store_artifacts:
           path: coverage
       - store_test_results:
           path: coverage

@@ -1,6 +1,6 @@
 # Express response presenter
 
-[![CircleCI](https://circleci.com/gh/Fcmam5/express-response-presnter.svg?style=svg)](https://circleci.com/gh/Fcmam5/express-response-presnter) [![Coverage Status](https://coveralls.io/repos/github/Fcmam5/express-response-presnter/badge.svg?branch=develop)](https://coveralls.io/github/Fcmam5/express-response-presnter?branch=develop) [![Known Vulnerabilities](https://snyk.io/test/github/Fcmam5/express-response-presnter/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Fcmam5/express-response-presnter?targetFile=package.json)
+[![CircleCI](https://circleci.com/gh/Fcmam5/express-response-presenter.svg?style=svg)](https://circleci.com/gh/Fcmam5/express-response-presenter) [![Coverage Status](https://coveralls.io/repos/github/Fcmam5/express-response-presnter/badge.svg?branch=develop)](https://coveralls.io/github/Fcmam5/express-response-presnter?branch=develop) [![Known Vulnerabilities](https://snyk.io/test/github/Fcmam5/express-response-presnter/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Fcmam5/express-response-presnter?targetFile=package.json)
 
 Standardize ExpressJS JSON responses
 
@@ -10,11 +10,11 @@ Run `npm i -S express-presenter`
 
 ## Usage
 
-* Import the package 
-  * `const expressPresenter = require('express-presenter')`
-* Instantiate `express-presenter` (it takes an optional `apiVersion` parameter)
-  * `const presenter = expressPresenter('v1')`
-* Use it as a middleware (see the examples below)
+- Import the package
+  - `const expressPresenter = require('express-presenter')`
+- Instantiate `express-presenter` (it takes an optional `apiVersion` parameter)
+  - `const presenter = expressPresenter('v1')`
+- Use it as a middleware (see the examples below)
 
 ### Example
 
@@ -30,7 +30,7 @@ const app = express();
 const presenter = expressPresenter();
 
 app.use(bodyParser.json());
-app.use(presenter);  // This must be before declaring your routes
+app.use(presenter); // This must be before declaring your routes
 
 app.use('/ok', (req, res) => {
   res.ok({
@@ -45,7 +45,6 @@ app.use('/created', (req, res) => {
     data: { name: 'Mhajeb', isHot: true }
   });
 });
-
 ```
 
 Or in your routes file:
@@ -76,7 +75,7 @@ router.post('/api/v1/create', presenter, (req, res) => {
 
 router.get('/api/v1/start-task', presenter, (req, res) => {
   res.accepted({
-    message: 'I will start cooking Mhajeb',
+    message: 'I will start cooking Mhajeb'
   });
 });
 
@@ -87,8 +86,8 @@ router.get('/api/v1/finished-eating', presenter, (req, res) => {
 module.exports = router;
 ```
 
-
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.

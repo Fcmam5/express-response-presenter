@@ -18,7 +18,6 @@ describe('presenter', () => {
   });
 
   describe('res.ok', () => {
-
     it('should return a response of status code of 200', async () => {
       const res = await request(server).get('/ok');
       expect(res.status).toBe(200);
@@ -27,16 +26,16 @@ describe('presenter', () => {
     it('should return a response having {apiVersion, message, data}', async () => {
       const res = await request(server).get('/ok');
       expect(res.body).toStrictEqual({
-        "apiVersion": "v1",
-        "data": {
-          "isHot": true,
-          "name": "Mhajeb"
+        apiVersion: 'v1',
+        data: {
+          isHot: true,
+          name: 'Mhajeb'
         },
-        "message": "Take my mhajeb"
+        message: 'Take my mhajeb'
       });
     });
 
-    it('should return a response having {message, data} when apiVersion is not set', async (done) => {
+    it('should return a response having {message, data} when apiVersion is not set', async done => {
       const otherServer = bootstrapExpressApp({
         middleware: presenter(),
         port: 3031
@@ -45,17 +44,17 @@ describe('presenter', () => {
       const res = await request(otherServer).get('/ok');
 
       expect(res.body).toStrictEqual({
-        "data": {
-          "isHot": true,
-          "name": "Mhajeb"
+        data: {
+          isHot: true,
+          name: 'Mhajeb'
         },
-        "message": "Take my mhajeb"
+        message: 'Take my mhajeb'
       });
 
       // cleanup
       otherServer.close();
       done();
-    })
+    });
   });
 
   describe('res.created', () => {
@@ -67,12 +66,12 @@ describe('presenter', () => {
     it('should return a response having {apiVersion, message, data}', async () => {
       const res = await request(server).get('/created');
       expect(res.body).toStrictEqual({
-        "apiVersion": "v1",
-        "data": {
-          "isHot": true,
-          "name": "Mhajeb"
+        apiVersion: 'v1',
+        data: {
+          isHot: true,
+          name: 'Mhajeb'
         },
-        "message": "A new mhajeb is created"
+        message: 'A new mhajeb is created'
       });
     });
   });
@@ -86,8 +85,8 @@ describe('presenter', () => {
     it('should return a response having {apiVersion, message, data}', async () => {
       const res = await request(server).get('/accepted');
       expect(res.body).toStrictEqual({
-        "apiVersion": "v1",
-        "message": 'I will start cooking Mhajeb',
+        apiVersion: 'v1',
+        message: 'I will start cooking Mhajeb'
       });
     });
   });
@@ -105,11 +104,10 @@ describe('presenter', () => {
   });
 });
 
-const bootstrapExpressApp = (options) => {
+const bootstrapExpressApp = options => {
   const app = express();
 
   app.use(bodyParser.json());
-
 
   if (options.middleware) {
     app.use(options.middleware);
@@ -131,7 +129,7 @@ const bootstrapExpressApp = (options) => {
 
   app.use('/accepted', (req, res) => {
     res.accepted({
-      message: 'I will start cooking Mhajeb',
+      message: 'I will start cooking Mhajeb'
     });
   });
 
@@ -142,4 +140,4 @@ const bootstrapExpressApp = (options) => {
   const server = app.listen(options.port || 3000);
 
   return server;
-}
+};
