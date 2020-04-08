@@ -7,7 +7,7 @@ describe('utils', () => {
     beforeEach(() => {
       mockResJson = {
         status: jest.fn().mockReturnThis(),
-        json: jest.fn()
+        json: jest.fn(),
       };
     });
 
@@ -15,7 +15,7 @@ describe('utils', () => {
       getJsonResponse(mockResJson, 200, { message: 'Hello' });
       expect(mockResJson.status).toHaveBeenCalledWith(200);
       expect(mockResJson.status().json).toHaveBeenCalledWith({
-        message: 'Hello'
+        message: 'Hello',
       });
     });
   });

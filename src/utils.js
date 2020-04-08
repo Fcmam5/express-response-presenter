@@ -3,5 +3,5 @@ const getJsonResponse = (res, statusCode, responseObject) => {
 };
 
 module.exports = {
-  getJsonResponse
+  getJsonResponse,
 };
