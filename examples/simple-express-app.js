@@ -11,20 +11,20 @@ app.use(presenter);
 app.use('/ok', (req, res) => {
   res.ok({
     message: 'Take my mhajeb',
-    data: { name: 'Mhajeb', isHot: true }
+    data: { name: 'Mhajeb', isHot: true },
   });
 });
 
 app.use('/created', (req, res) => {
   res.created({
     message: 'A new mhajeb is created',
-    data: { name: 'Mhajeb', isHot: true }
+    data: { name: 'Mhajeb', isHot: true },
   });
 });
 
 app.use('/accepted', (req, res) => {
   res.accepted({
-    message: 'I will start cooking Mhajeb'
+    message: 'I will start cooking Mhajeb',
   });
 });
 

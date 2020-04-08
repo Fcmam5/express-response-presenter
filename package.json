@@ -1,6 +1,6 @@
 {
   "name": "express-presenter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Standardize ExpressJS JSON responses",
   "main": "src/index.js",
   "scripts": {
@@ -27,18 +27,31 @@
   },
   "homepage": "https://github.com/Fcmam5/express-response-presnter#readme",
   "devDependencies": {
-    "@types/jest": "25.1.4",
+    "@types/jest": "25.2.1",
     "body-parser": "1.19.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.1.0",
     "eslint-config-airbnb-base": "14.1.0",
-    "eslint-config-prettier": "6.10.0",
-    "eslint-plugin-import": "2.20.1",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-import": "2.20.2",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-sonarjs": "0.5.0",
     "express": "4.17.1",
-    "jest": "25.1.0",
-    "prettier": "1.19.1",
+    "husky": "4.2.3",
+    "jest": "25.3.0",
+    "lint-staged": "10.1.2",
+    "prettier": "2.0.4",
     "supertest": "4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run lint && npm test"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,ts}": [
+      "prettier --write",
+      "eslint . --fix-dry-run"
+    ]
   }
 }

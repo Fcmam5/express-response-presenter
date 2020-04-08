@@ -9,7 +9,7 @@ describe('presenter', () => {
   beforeEach(() => {
     server = bootstrapExpressApp({
       middleware: presenter('v1'),
-      port: 3000
+      port: 3000,
     });
   });
 
@@ -29,16 +29,16 @@ describe('presenter', () => {
         apiVersion: 'v1',
         data: {
           isHot: true,
-          name: 'Mhajeb'
+          name: 'Mhajeb',
         },
-        message: 'Take my mhajeb'
+        message: 'Take my mhajeb',
       });
     });
 
-    it('should return a response having {message, data} when apiVersion is not set', async done => {
+    it('should return a response having {message, data} when apiVersion is not set', async (done) => {
       const otherServer = bootstrapExpressApp({
         middleware: presenter(),
-        port: 3031
+        port: 3031,
       });
 
       const res = await request(otherServer).get('/ok');
@@ -46,9 +46,9 @@ describe('presenter', () => {
       expect(res.body).toStrictEqual({
         data: {
           isHot: true,
-          name: 'Mhajeb'
+          name: 'Mhajeb',
         },
-        message: 'Take my mhajeb'
+        message: 'Take my mhajeb',
       });
 
       // cleanup
@@ -69,9 +69,9 @@ describe('presenter', () => {
         apiVersion: 'v1',
         data: {
           isHot: true,
-          name: 'Mhajeb'
+          name: 'Mhajeb',
         },
-        message: 'A new mhajeb is created'
+        message: 'A new mhajeb is created',
       });
     });
   });
@@ -86,7 +86,7 @@ describe('presenter', () => {
       const res = await request(server).get('/accepted');
       expect(res.body).toStrictEqual({
         apiVersion: 'v1',
-        message: 'I will start cooking Mhajeb'
+        message: 'I will start cooking Mhajeb',
       });
     });
   });
@@ -104,7 +104,7 @@ describe('presenter', () => {
   });
 });
 
-const bootstrapExpressApp = options => {
+const bootstrapExpressApp = (options) => {
   const app = express();
 
   app.use(bodyParser.json());
@@ -116,20 +116,20 @@ const bootstrapExpressApp = options => {
   app.use('/ok', (req, res) => {
     res.ok({
       message: 'Take my mhajeb',
-      data: { name: 'Mhajeb', isHot: true }
+      data: { name: 'Mhajeb', isHot: true },
     });
   });
 
   app.use('/created', (req, res) => {
     res.created({
       message: 'A new mhajeb is created',
-      data: { name: 'Mhajeb', isHot: true }
+      data: { name: 'Mhajeb', isHot: true },
     });
   });
 
   app.use('/accepted', (req, res) => {
     res.accepted({
-      message: 'I will start cooking Mhajeb'
+      message: 'I will start cooking Mhajeb',
     });
   });
 
