@@ -1,6 +1,6 @@
 {
   "name": "express-presenter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Standardize ExpressJS JSON responses",
   "main": "src/index.js",
   "scripts": {
